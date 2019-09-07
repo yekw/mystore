@@ -1,0 +1,35 @@
+from tkinter import *
+tk = Tk()
+tk.title("学生管理系统")
+tk.maxsize(700, 500)    #设置窗口最大尺寸
+Label(tk, text='欢迎使用学生管理系统')
+
+columns = ('姓名', '学号', '成绩')
+table = Treeview(tk, height=14, show="headings", columns=columns)
+table.column('姓名', width=150, anchor='center')
+table.column('学号', width=150, anchor='center')
+table.column('成绩', width=150, anchor='center')
+table.heading('姓名', text="姓名")
+table.heading('学号', text="学号")
+table.heading('成绩', text="成绩")
+all_data()
+table.grid(row=1, sticky=W+E)
+
+frame = Frame()
+frame.grid(row=2, pady=20)
+names = StringVar()
+ids = StringVar()
+grades = StringVar()
+Label(frame, text="姓名：").grid(row=0, column=0)
+Entry(frame, textvariable=names).grid(row=0, column=1)
+Label(frame, text="学号：").grid(row=1, column=0)
+Entry(frame, textvariable=ids).grid(row=1, column=1)
+Label(frame, text="成绩：").grid(row=2, column=0)
+Entry(frame, textvariable=grades).grid(row=2, column=1)
+
+Button(frame, text="查询", width=12, command=look).grid(row=0, column=2, padx=10, pady=2)
+Button(frame, text="成绩修改", width=12, command=alter).grid(row=0, column=3, pady=2)
+Button(frame, text="插入", width=12, command=insert).grid(row=1, column=2)
+Button(frame, text="删除", width=12, command=delete).grid(row=1, column=3)
+
+tk.mainloop()

@@ -1,0 +1,288 @@
+from tkinter import *
+from view import *  # 菜单栏对应的各个子页面
+from tkinter import ttk
+from tkinter import messagebox as msgbox
+
+class MainPage(object):
+    def __init__(self, master=None):
+        self.root = master  # 定义内部变量root
+        self.root.geometry('%dx%d' % (720, 630))  # 设置窗口大小
+        self.createPage()
+
+    def createPage(self):
+        # 创建不同Frame
+        self.addmanagePage = addmanageFrame(self.root)
+        self.xiugaimanagePage = xiugaimanageFrame(self.root)
+        self.deletemanagePage = deletemanageFrame(self.root)
+
+        self.addstudentPage = add1Frame(self.root)
+        self.findstudentPage = find1Frame(self.root)
+        self.xiugaistudentPage = xiugai1Frame(self.root)
+        self.deletestudentPage = delete1Frame(self.root)
+
+        self.addbookPage = addFrame(self.root)
+        self.deleteBookPage = deleteFrame(self.root)
+        self.xiugaiBookPage = xiugaiFrame(self.root)
+        self.findBookPage = findFrame(self.root)
+
+        self.bookLendpage = lendFrame(self.root)
+        self.lendSearchpage = searchFrame(self.root)
+        self.bookReturnpage = returnFrame(self.root)
+
+
+        #self.background = bgFrame(self.root)  # 默认显示数据录入界面
+
+
+        menubar = Menu(self.root) #创建menubar
+        file0_menu = Menu(menubar, tearoff=0)
+        menubar.add_cascade(label='管理员管理', menu=file0_menu)
+        file0_menu.add_command(label='管理员信息登记', command=self.manageData1)
+        file0_menu.add_command(label='管理员信息修改', command=self.manageData2)
+        file0_menu.add_command(label='管理员信息删除', command=self.manageData3)
+        file1_menu = Menu(menubar, tearoff=0)  # 创建file_menu 菜单
+        menubar.add_cascade(label='读者管理', menu=file1_menu)
+        file1_menu.add_command(label='读者信息登记', command=self.studentData1)
+        file1_menu.add_command(label='读者信息查询', command=self.studentData2)
+        file1_menu.add_command(label='读者信息修改', command=self.studentData3)
+        file1_menu.add_command(label='读者信息删除', command=self.studentData4)
+        file2_menu = Menu(menubar, tearoff=0)
+        menubar.add_cascade(label='图书管理', menu=file2_menu)
+        file2_menu.add_command(label='图书登记', command=self.bookData1)
+        file2_menu.add_command(label='图书查询', command=self.bookData2)
+        file2_menu.add_command(label='信息修改', command=self.bookData3)
+        file2_menu.add_command(label='信息删除', command=self.bookData4)
+        file3_menu = Menu(menubar,tearoff=0)
+        menubar.add_cascade(label='借阅管理', menu=file3_menu)
+        file3_menu.add_command(label='借阅登记', command=self.borrowData1)
+        file3_menu.add_command(label='借阅查询', command=self.borrowData2)
+        file3_menu.add_command(label='归还登记', command=self.borrowData3)
+        self.root['menu'] = menubar  # 设置菜单栏
+
+    #############管理员
+    def manageData1(self):
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addmanagePage.pack()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+
+    def manageData2(self):
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack()
+        self.deletemanagePage.pack_forget()
+
+    def manageData3(self):
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack()
+
+    ###############读者
+    def studentData1(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addstudentPage.pack()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+
+    def studentData2(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+
+    def studentData3(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack()
+        self.deletestudentPage.pack_forget()
+
+    def studentData4(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack()
+
+
+    ################图书
+    def bookData1(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addbookPage.pack()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+
+
+    def bookData2(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack()
+
+    def bookData3(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack()
+        self.findBookPage.pack_forget()
+
+    def bookData4(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+
+
+    #################借阅
+    def borrowData1(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack_forget()
+    def borrowData2(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack()
+        self.bookReturnpage.pack_forget()
+    def borrowData3(self):
+        self.addmanagePage.pack_forget()
+        self.xiugaimanagePage.pack_forget()
+        self.deletemanagePage.pack_forget()
+        self.addstudentPage.pack_forget()
+        self.findstudentPage.pack_forget()
+        self.xiugaistudentPage.pack_forget()
+        self.deletestudentPage.pack_forget()
+        self.addbookPage.pack_forget()
+        self.deleteBookPage.pack_forget()
+        self.xiugaiBookPage.pack_forget()
+        self.findBookPage.pack_forget()
+        self.bookLendpage.pack_forget()
+        self.lendSearchpage.pack_forget()
+        self.bookReturnpage.pack()
